@@ -14,8 +14,8 @@ services:
       # Mount examples folder to support running code examples inside the Docker container
       - ./examples:/app/examples
       # Mount data directory
-      - ./data:/app/owl/data
-      - ./data/tmp:/app/tmp
+      - ./output:/app/owl/data
+      - ./output/tmp:/app/tmp
       # Mount cache directories to avoid repeated downloads
       - ~/.cache/pip:/root/.pip/cache
       - ~/.cache/playwright:/root/.cache/ms-playwright

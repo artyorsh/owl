@@ -49,11 +49,11 @@ RUN echo '#!/bin/bash\necho "Welcome to the OWL Project Docker environment!"\nec
     chmod +x /usr/local/bin/owl-welcome
 
 # Set working directory
-WORKDIR /app/owl
+WORKDIR /app
 
 # Add health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import sys; sys.exit(0 if __import__('os').path.exists('/app/owl') else 1)"
 
 # Container startup command
-CMD ["/bin/bash", "-c", "owl-welcome && /bin/bash"]
+CMD ["/bin/bash", "-c", "source .venv/bin/activate && playwright install-deps && xvfb-python owl/webapp.py"]

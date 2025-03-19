@@ -6,14 +6,13 @@ services:
     # Option 2: Build image locally
     # Uncomment the following lines and comment out the 'image' line above to build locally
     build:
-      context: ..
       dockerfile: .container/Dockerfile
     
     volumes:
       # Mount .env file for easy API key configuration
-      - ../owl/.env:/app/owl/.env
+      - ./owl/.env:/app/owl/.env
       # Mount examples folder to support running code examples inside the Docker container
-      - ../examples:/app/examples
+      - ./examples:/app/examples
       # Mount data directory
       - ./data:/app/owl/data
       - ./data/tmp:/app/tmp
